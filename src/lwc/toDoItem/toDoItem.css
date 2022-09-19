@@ -8,17 +8,14 @@
     margin-right: auto;
     transition: all .5% ease;
 }
-
 .completed{
     background-color: darkturquoise;
 
 }
-
 .completed:hover{
     background-color: aquamarine;
     border-radius: 16px;
 }
-
 .upcoming:hover{
     background-color: aliceblue;
     border-radius: 16px;
