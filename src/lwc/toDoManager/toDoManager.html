@@ -1,0 +1,46 @@
+<template>
+  <lightning-card title="ToDo-Manager" icon-name="action:new_task">
+    <lightning-layout class="slds-align_absolute-center slds-text-align_center container" multiple-rows>
+      <!--layout for displaying picture and greeting-->
+      <lightning-layout-item size='12'>
+        <div><img src={pictureUrl} /></div>
+        <div class="greeting"> {greeting}</div>
+      </lightning-layout-item>
+      <!--Layout for displaying time-->
+      <lightning-layout-item size="12">
+        <div class="time">{time}</div>
+      </lightning-layout-item>
+      <!--layout item for display a text-->
+      <lightning-layout-item size="12">
+        <div class="slds-text-heading_large slds-m-vertical_large">What's your main focus for today?</div>
+      </lightning-layout-item>
+      <!--layout for input and button-->
+      <lightning-layout-item size="12" class="slds-m-top_large" large-device-size="6" medium-device-size="10"
+        small-device-size="12">
+        <lightning-layout>
+          <lightning-layout-item size="11">
+            <lightning-input type="text" variant="label-hidden" label="What's in your mind?"
+              placeholder="What's in your mind?"></lightning-input>
+          </lightning-layout-item>
+          <lightning-layout-item size="1">
+            <lightning-button-icon icon-name="utility:add" title="Add todo" onclick={addTodoHandler}>
+            </lightning-button-icon>
+          </lightning-layout-item>
+        </lightning-layout>
+      </lightning-layout-item>
+      <!--layout item for adding the task into array and then display them-->
+      <lightning-layout-item size="12">
+        <div>UPCOMING</div>
+        <template for:each={upcomingTodos} for:item="todo">
+          <c-to-do-item key={todo.todoId} todo-id={todo.todoId} todo-name={todo.todoName} onupdate={updateTodoHandler}
+            ondelete={deleteTodoHandler}></c-to-do-item>
+        </template>
+        <div>COMPLETED</div>
+        <template for:each={completedTodos} for:item="todo">
+          <c-to-do-item key={todo.todoId} todo-id={todo.todoId} todo-name={todo.todoName} done
+            onupdate={updateTodoHandler} ondelete={deleteTodoHandler}></c-to-do-item>
+        </template>
+      </lightning-layout-item>
+    </lightning-layout>
+  </lightning-card>
+</template>
