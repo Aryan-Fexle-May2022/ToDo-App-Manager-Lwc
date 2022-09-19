@@ -1,0 +1,15 @@
+.container{
+    background-color: rgb(13, 159, 243);
+    padding: 16px;
+    max-height: 480px;
+    overflow-y: scroll;
+    display: block;
+}
+.greeting{
+    font-size: 1rem;
+    font-weight: 400;
+}
+.time{
+    font-size: 1rem;
+    font-weight: 500;
+}
